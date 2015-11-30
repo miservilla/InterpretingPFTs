@@ -87,7 +87,7 @@ namespace interpretingPFTs
                 //DATA GATHERING ENDS AND LOGIC BEGINS HERE!
 
             }
-            else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80)
+            if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80)
              {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -99,7 +99,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-           else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "n")
+           if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -111,7 +111,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-           else if (age >= 5 && age <= 18 && fev1_fvcPP > 84 && fvcPP < 80 && bronchodilator == "n")
+           if (age >= 5 && age <= 18 && fev1_fvcPP > 84 && fvcPP < 80 && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nRestrictive pattern defect. \n");
@@ -128,7 +128,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-           else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80 && bronchodilator == "y" && pedsBronchodilatorPositive == "y")
+           if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80 && bronchodilator == "y" && pedsBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed Pattern Defect.\n");
@@ -146,7 +146,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-           else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "y" && pedsBronchodilatorPositive == "y")
+           if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "y" && pedsBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -159,7 +159,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "y" && pedsBronchodilatorPositive == "n")
+            if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP > 79 && bronchodilator == "y" && pedsBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -176,7 +176,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80 && bronchodilator == "y" && pedsBronchodilatorPositive == "n")
+            if (age >= 5 && age <= 18 && fev1_fvcPP < 85 && fvcPP < 80 && bronchodilator == "y" && pedsBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -193,7 +193,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 5 && age <= 18 && fev1_fvcPP > 84 && fvcPP > 79)
+            if (age >= 5 && age <= 18 && fev1_fvcPP > 84 && fvcPP > 79)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nPFTs are normal.");
@@ -204,7 +204,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc >= fvcLLN)
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc >= fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
@@ -215,7 +215,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc < fvcLLN)
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc < fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nRestrictive pattern defect. \n");
@@ -232,7 +232,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -249,7 +249,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "n")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -261,7 +261,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed Pattern Defect.\n");
@@ -279,7 +279,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "n")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -291,7 +291,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -304,7 +304,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -321,7 +321,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN)
+            if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
@@ -332,7 +332,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN)
+            if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nRestrictive pattern defect. \n");
@@ -349,7 +349,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -366,7 +366,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -378,7 +378,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed Pattern Defect.\n");
@@ -396,7 +396,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -408,7 +408,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -421,7 +421,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -438,6 +438,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
+            //Console.ReadLine();
         }
 
 
