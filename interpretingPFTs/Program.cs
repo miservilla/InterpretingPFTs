@@ -321,7 +321,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN)
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
@@ -332,13 +332,13 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN)
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nRestrictive pattern defect. \n");
                 PFT = "rpd";
                 Severity(fev1PP);
-                Console.WriteLine("Cconfirm restrictive defect through full pulmonary function tests with DLCO.\n");
+                Console.WriteLine("Confirm restrictive defect through full pulmonary function tests with DLCO.\n");
                 Console.WriteLine("Consider differential diagnosis:\n\n" +
                 "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
                 "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
@@ -349,7 +349,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -366,7 +366,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n")
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -378,7 +378,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed Pattern Defect.\n");
@@ -396,7 +396,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n")
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -408,7 +408,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -438,7 +438,6 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            //Console.ReadLine();
         }
 
 
@@ -524,7 +523,7 @@ namespace interpretingPFTs
         }
         private static void DLCODiagnosis(string DLCO)
         {
-            Console.Write("Differential diagnosis based on DLCO is ");
+            Console.Write("\nDifferential diagnosis based on DLCO is ");
             if (DLCO == "high")
             {
                 Console.WriteLine("asthma, left-to-right intracardiac shunts, polycythemia, pulmonary hemorrhage.");
@@ -544,10 +543,9 @@ namespace interpretingPFTs
             {
                 if (PFT == "rpd")
                 {
-                    Console.WriteLine("asbestosis, berylliosis, hypersensitivity pneumonitis, " + 
-                    "idiopathic pulmonary fibrosis, Langerhans cell" +
-                    "histiocytosis(histiocytosis X), lymphangitic spread of tumor, " +
-                    "miliary tuberculosis, sarcoidosis, silicosis(late).");
+                    Console.WriteLine("asbestosis, berylliosis, hypersensitivity pneumonitis,\n" + 
+                    "idiopathic pulmonary fibrosis, Langerhans cell histiocytosis(histiocytosis X),\n" +
+                    "lymphangitic spread of tumor, miliary tuberculosis, sarcoidosis, silicosis(late).");
                 }
                 else if (PFT == "od")
                 {
@@ -555,13 +553,12 @@ namespace interpretingPFTs
                 }
                 else
                 {
-                    Console.WriteLine("chronic pulmonary emboli, congestive heart failure, " +
-                    "connective tissue disease with pulmonary involvement, dermatomyositis/ polymyositis, " +
-                    "inflammatory bowel disease, interstitial lung disease(early), primary " +
-                    "pulmonary hypertension, rheumatoid arthritis, systemic lupus erythematosus, " +
+                    Console.WriteLine("chronic pulmonary emboli, congestive heart failure,\n" +
+                    "connective tissue disease with pulmonary involvement, dermatomyositis/ polymyositis,\n" +
+                    "inflammatory bowel disease, interstitial lung disease(early),\n" +
+                    "primary pulmonary hypertension, rheumatoid arthritis, systemic lupus erythematosus,\n" +
                     "systemic sclerosis, Wegener granulomatosis (also called granulomatosis with polyangiitis).");
                 }
-                Console.ReadLine();
             }
             }
         }
