@@ -14,24 +14,24 @@ namespace interpretingPFTs
             double fev1_fvcLLN = 0;
             double fev1_fvc = 0;
             double fev1PP = 0;
-            double age = GetValue("Enter age: ");
-            string smokingString = GetYesNoValue("Current or past smoking, Y or N? ");
-            double fvc = GetValue("Enter FVC actual: ");
+            double age = GetValue("Enter age, or 0 for unknown: ");
+            string smokingString = GetYesNoValue("Current or past smoking, Y or N or U (unknown)? ");
+            double fvc = GetValue("Enter FVC actual, or 0 for unknown: ");
             double fvcPP = GetValue("Enter FVC percent predicted: ");
             if (age > 18)
             {
-               fvcLLN = GetValue("Enter FVC LLN: ");
+               fvcLLN = GetValue("Enter FVC LLN, or 0 for unknown: ");
             }
                fev1PP = GetValue("Enter FEV1 percent predicted: ");
             if (age > 18)
             {
-               fev1_fvc = GetValue("Enter FEV1/FVC actual: ");
+               fev1_fvc = GetValue("Enter FEV1/FVC actual, or 0 for unknown: ");
             }
             double fev1_fvcPP = GetValue("Enter FEV1/FVC percent predicted: ");
 
             if (age > 18)
             {
-                fev1_fvcLLN = GetValue("Enter FEV1/FVC LLN: ");
+                fev1_fvcLLN = GetValue("Enter FEV1/FVC LLN, or 0 for unknown: ");
             }
             string bronchodilator = GetYesNoValue("Was bronchodilator therapy tried, Y or N? ");
 
@@ -42,7 +42,7 @@ namespace interpretingPFTs
                     pedsBronchodilatorPositive = GetYesNoValue("Was there and increase in FEV1 or FVC > 12 %,\n" +
                     "or was there an increase in FVC > 80 % of predicted, Y or N? ");
                 }
-                if (age > 18)
+                else //(age > 18)
                 {
                     adultBronchodilatorPositive = GetYesNoValue("Was there an increase in FEV1 or FVC > 12 % and > 200 mL,\n" +
                     "or was there an increase in FVC > LLN of predicted, Y or N? ");
@@ -204,7 +204,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc >= fvcLLN)
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc >= fvcLLN && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
@@ -215,7 +215,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc < fvcLLN)
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP >= 70 && fvc < fvcLLN && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nRestrictive pattern defect. \n");
@@ -232,7 +232,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -249,7 +249,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "n")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed pattern defect.\n");
@@ -261,7 +261,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nMixed Pattern Defect.\n");
@@ -279,7 +279,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "n")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -291,124 +291,7 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nObstructive defect.\n");
-                Console.WriteLine("\nBased on bronchodilator response, Reversible obstruction (asthma).\n");
-                PFT = "ro";
-                Severity(fev1PP);
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nObstructive defect.\n");
-                Console.WriteLine("\nBased on bronchodilator response, irreversible obstruction.\n");
-                PFT = "io";
-                Severity(fev1PP);
-                Console.WriteLine("Consider differential diagnosis:\n\n" +
-                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
-                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
-                "Cystic fibrosis \nSilicosis(early)");
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN)
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
-                PFT = "n";
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN)
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nRestrictive pattern defect. \n");
-                PFT = "rpd";
-                Severity(fev1PP);
-                Console.WriteLine("Confirm restrictive defect through full pulmonary function tests with DLCO.\n");
-                Console.WriteLine("Consider differential diagnosis:\n\n" +
-                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
-                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
-                "Cystic fibrosis \nSilicosis(early)");
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nMixed pattern defect.\n");
-                PFT = "mpd";
-                Severity(fev1PP);
-                Console.WriteLine("Based on bronchodilator response, confirm restrictive defect through full pulmonary function tests with DLCO.\n");
-                Console.WriteLine("Consider differential diagnosis:\n\n" +
-                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
-                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
-                "Cystic fibrosis \nSilicosis(early)");
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nMixed pattern defect.\n");
-                PFT = "mpd";
-                Severity(fev1PP);
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nMixed Pattern Defect.\n");
-                PFT = "mpd";
-                Severity(fev1PP);
-                Console.WriteLine("Based on bronchodilator response, pure obstruction with air trapping is likely \n" +
-                "chronic obstructive pulmonary disease.\n");
-                Console.WriteLine("Consider differential diagnosis:\n\n" +
-                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
-                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
-                "Cystic fibrosis \nSilicosis(early)");
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n")
-            {
-                Console.ForegroundColor = System.ConsoleColor.Red;
-                Console.WriteLine("\nObstructive defect.\n");
-                PFT = "od";
-                Severity(fev1PP);
-                if (wasDLCO == "y")
-                {
-                    DLCODiagnosis(DLCO);
-                }
-                Console.ReadLine();
-            }
-            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
@@ -421,13 +304,247 @@ namespace interpretingPFTs
                 }
                 Console.ReadLine();
             }
-            else //if (age > 18 && smokingString == "n" && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            else if (age >= 65 && smokingString == "y" && fev1_fvcPP < 70 && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
             {
                 Console.ForegroundColor = System.ConsoleColor.Red;
                 Console.WriteLine("\nObstructive defect.\n");
                 Console.WriteLine("\nBased on bronchodilator response, irreversible obstruction.\n");
                 PFT = "io";
                 Severity(fev1PP);
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc >= fvcLLN && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
+                PFT = "n";
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc >= fev1_fvcLLN && fvc < fvcLLN && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nRestrictive pattern defect. \n");
+                PFT = "rpd";
+                Severity(fev1PP);
+                Console.WriteLine("Confirm restrictive defect through full pulmonary function tests with DLCO.\n");
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed pattern defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                Console.WriteLine("Based on bronchodilator response, confirm restrictive defect through full pulmonary function tests with DLCO.\n");
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed pattern defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc < fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed Pattern Defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                Console.WriteLine("Based on bronchodilator response, pure obstruction with air trapping is likely \n" +
+                "chronic obstructive pulmonary disease.\n");
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                PFT = "od";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "y" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                Console.WriteLine("\nBased on bronchodilator response, reversible obstruction (asthma).\n");
+                PFT = "ro";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (age > 18 /*&& smokingString == "n"*/ && fev1_fvc < fev1_fvcLLN && fvc >= fvcLLN && bronchodilator == "y" && adultBronchodilatorPositive == "n" && age != 0 && fvc != 0 && fvcLLN != 0 && fev1_fvc != 0 && fev1_fvcLLN != 0)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                Console.WriteLine("\nBased on bronchodilator response, irreversible obstruction.\n");
+                PFT = "io";
+                Severity(fev1PP);
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP >= 80 && fev1_fvcPP >= 70)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nPFTs are normal. If there is still concern for asthma, order bronchoprovocation.");
+                PFT = "n";
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP <80 && fev1_fvcPP >= 70)
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nRestrictive pattern defect. \n");
+                PFT = "rpd";
+                Severity(fev1PP);
+                Console.WriteLine("Confirm restrictive defect through full pulmonary function tests with DLCO.\n");
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP >= 80 && fev1_fvcPP <70 && bronchodilator == "n")
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                PFT = "od";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP >= 80 && fev1_fvcPP < 70 && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                Console.WriteLine("\nBased on bronchodilator response, reversible obstruction (asthma).\n");
+                PFT = "ro";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP >= 80 && fev1_fvcPP < 70 && bronchodilator == "y" && adultBronchodilatorPositive == "n")
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nObstructive defect.\n");
+                Console.WriteLine("\nBased on bronchodilator response, irreversible obstruction.\n");
+                PFT = "io";
+                Severity(fev1PP);
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP < 80 && fev1_fvcPP < 70 && bronchodilator == "n")
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed pattern defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else if (fvcPP < 80 && fev1_fvcPP < 70 && bronchodilator == "y" && adultBronchodilatorPositive == "y")
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed Pattern Defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                Console.WriteLine("Based on bronchodilator response, pure obstruction with air trapping is likely \n" +
+                "chronic obstructive pulmonary disease.\n");
+                Console.WriteLine("Consider differential diagnosis:\n\n" +
+                "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
+                "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
+                "Cystic fibrosis \nSilicosis(early)");
+                if (wasDLCO == "y")
+                {
+                    DLCODiagnosis(DLCO);
+                }
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.ForegroundColor = System.ConsoleColor.Red;
+                Console.WriteLine("\nMixed pattern defect.\n");
+                PFT = "mpd";
+                Severity(fev1PP);
+                Console.WriteLine("Based on bronchodilator response, confirm restrictive defect through full pulmonary function tests with DLCO.\n");
                 Console.WriteLine("Consider differential diagnosis:\n\n" +
                 "α1 - antitrypsin deficiency \nAsthma \nBronchiectasis \n" +
                 "Bronchiolitis obliterans \nChronic obstructive pulmonary disease \n" +
@@ -468,6 +585,31 @@ namespace interpretingPFTs
                 }
             }
         }
+        //private static double GetValueNullOK(string label)
+        //{
+        //    //the value to be returned
+        //    double value;
+
+        //    //loop until you get a valid entry
+        //    while (true)
+        //    {
+        //        Console.Write(label);
+        //        string input = Console.ReadLine();
+        //        if (Double.TryParse(input, out value))
+        //        {
+        //            return value;
+        //        }
+        //        else if (input == "u")
+        //        {
+        //            value = 0;
+        //            return value;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Input error, try again!");
+        //        }
+        //    }
+        //}
         private static string GetYesNoValue(string label)
         {
             //the value to be returned
@@ -479,11 +621,7 @@ namespace interpretingPFTs
                 Console.Write(label);
                 YesNo = Console.ReadLine();
                 YesNo = YesNo.ToLower();
-                if (YesNo == "y")
-                {
-                    return YesNo;
-                }
-                else if (YesNo == "n")
+                if (YesNo == "y" || YesNo == "n" || YesNo == "u")
                 {
                     return YesNo;
                 }
